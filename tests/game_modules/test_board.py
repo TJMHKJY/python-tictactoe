@@ -1,5 +1,5 @@
 import pytest
-from python_tictactoe.game.board import Board
+from python_tictactoe.game_modules.board import Board
 
 class TestBoard(object):
 
