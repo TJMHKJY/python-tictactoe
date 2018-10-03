@@ -5,13 +5,27 @@ from python_tictactoe.game_modules.rules import Rules
 
 class TestGame(object):
 
-    def test_if_game_has_a_win(self):
-        test_board = Board()
-        test_rules = Rules(test_board)
-        test_game = Game(test_board, test_rules)
+    @pytest.fixture
+    def test_game(self):
         board = [
             ["o", "x", "x"],
             ["x", "o", "x"],
             ["o", "x", "o"],
-        ]        
-        assert test_game.has_win(board, test_rules)
+        ]
+        test_board = Board(board)
+        test_rules = Rules(test_board)
+        return Game(test_board, test_rules)
+
+    def test_if_game_has_a_win(self, test_game):   
+        assert test_game.is_won()
+
+    def test_if_game_is_over(self):
+        board = [
+            ["o", "x", "x"],
+            ["x", "o", "o"],
+            ["o", "x", "x"],
+        ] 
+        test_board = Board(board)
+        test_rules = Rules(test_board)
+        test_game = Game(test_board, test_rules) 
+        assert test_game.is_over(board)

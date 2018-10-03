@@ -13,9 +13,11 @@ class Rules:
         return self.all_elements_are_the_same(row) and self.no_elements_are_empty(row) 
 
     def check_for_win(self, rows):
-        return any(self.is_winning_row(row) for row in rows)
+        for row in rows:
+            if self.is_winning_row(row):
+                return True
 
-    def winning_icon(self, rows):  
+    def winning_icon(self, rows):
         for row in rows: 
             if self.is_winning_row(row):
                 return row[0]
@@ -26,18 +28,14 @@ class Rules:
             (square - 1) % row_size
         ]
 
-    def has_winning_row(self, board):
-        rows = self.board.rows(board)
+    def has_winning_row(self):
+        rows = self.board.rows()
         return self.check_for_win(rows)
 
-    def has_winning_column(self, board):
-        columns = self.board.columns(board)
+    def has_winning_column(self):
+        columns = self.board.columns()
         return self.check_for_win(columns)
 
-    def has_winning_diagonal(self, board):
-        diagonals = self.board.diagonals(board)
+    def has_winning_diagonal(self):
+        diagonals = self.board.diagonals()
         return self.check_for_win(diagonals)
-
-
-
-    

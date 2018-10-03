@@ -4,7 +4,8 @@ class Game:
         self.board = board
         self.rules = rules
 
-    def has_win(self, board, rules):
-        return self.rules.has_winning_row(board) or\
-        self.rules.has_winning_column(board) or\
-        self.rules.has_winning_diagonal(board)
+    def is_won(self):
+        return self.rules.has_winning_row() or self.rules.has_winning_column() or self.rules.has_winning_diagonal()
+
+    def is_over(self, board):
+        return self.is_won or self.board.is_full()
