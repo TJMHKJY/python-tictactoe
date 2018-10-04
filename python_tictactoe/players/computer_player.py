@@ -1,4 +1,4 @@
-from python_tictactoe.strategy_modules.minimax_strategy import best_move
+from python_tictactoe.strategy.minimax_strategy import best_move
 
 class ComputerPlayer:
 

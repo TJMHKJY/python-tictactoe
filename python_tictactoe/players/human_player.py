@@ -1,4 +1,4 @@
-from python_tictactoe.strategy_modules.input_strategy import user_input
+from python_tictactoe.strategy.input_strategy import user_input
 
 class HumanPlayer:
 

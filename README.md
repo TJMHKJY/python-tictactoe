@@ -2,7 +2,7 @@
 
 **Installation**  
 
-This project requires Python 2.7.10  
+This project requires Python 3.7.0  
 
 **Install this project by cloning:**  
 ```
@@ -28,31 +28,30 @@ mix test test/ui_modules/cli_messages_test.exs
 **To run an individual test:**
 ```
 mix test test/ui_modules/cli_messages_test.exs:73 
-```  
-___ -->
+```  -->
+___ 
 
-<!-- **To play game in terminal**
+**To play game in terminal**
 
 cd into root of app directory and run in console:  
 
 ```
-mix escript.build   
-./tictactoe  
+python3 -m python_tictactoe
 ```
 ___
 
 **Functional Core**
 
 ```
-lib
--- game_modules/  
--- player_modules/  
--- strategy_modules/  
+python_tictactoe
+-- game/  
+-- players/  
+-- strategy/  
 ```
 
 **Imperative Shell**
 ```
-lib
--- app_modules/  
--- ui_modules/  
-``` -->
+python_tictactoe
+-- app/  
+-- ui/  
+``` 

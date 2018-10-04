@@ -1,7 +1,7 @@
 import pytest
-from python_tictactoe.game_modules.game import Game
-from python_tictactoe.game_modules.board import Board
-from python_tictactoe.game_modules.rules import Rules
+from python_tictactoe.game.game import Game
+from python_tictactoe.game.board import Board
+from python_tictactoe.game.rules import Rules
 
 class TestGame(object):
 
