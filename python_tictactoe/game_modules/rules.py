@@ -15,7 +15,7 @@ class Rules:
     def check_for_win(self, rows):
         for row in rows:
             if self.is_winning_row(row):
-                return True
+                return True    
 
     def winning_icon(self, rows):
         for row in rows: 
