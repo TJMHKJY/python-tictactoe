@@ -43,6 +43,10 @@ class TestBoard(object):
         diagonals = test_board_filled.diagonals()
         assert diagonals == [[1,5,9], [3,5,7]]
 
+    def test_get_row_size(self, test_board):
+        row_size = test_board.get_row_size()
+        assert row_size == 3
+
     def test_get_row_at(self, test_board_filled):
         index = 1
         row = test_board_filled.get_row_at(index)

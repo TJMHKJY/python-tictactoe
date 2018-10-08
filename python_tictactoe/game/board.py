@@ -28,6 +28,9 @@ class Board:
 
     def diagonals(self):
         return [self.left_diagonal(), self.right_diagonal()]
+
+    def get_row_size(self):
+        return len(self.rows())
    
     def get_row_at(self, index):
         return self.rows()[index]

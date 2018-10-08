@@ -1,2 +1,4 @@
-def user_input():
-  return 5
+class InputStrategy:
+
+  def best_move(self, gamestate, input=None):
+    return input

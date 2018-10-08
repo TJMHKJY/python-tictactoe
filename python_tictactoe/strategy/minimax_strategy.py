@@ -1,2 +1,4 @@
-def best_move():
-  return "minimax"
+class MinimaxStrategy:
+
+  def best_move(self, gamestate, input=None):
+    return "minimax"

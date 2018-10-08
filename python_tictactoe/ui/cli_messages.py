@@ -52,6 +52,9 @@ class CliMessages:
     def announce_turn(self, name):
         return name + ", your turn. Please select a move between 1 - 9:"
 
+    def invalid_move(self):
+        return "That was an invalid move, please try again. Please select a move between 1 - 9:"
+    
     def confirm_move(self, name, move):
         return name + " selects square " + move + ". Placing " + name + "'s move."
 
@@ -65,9 +68,10 @@ class CliMessages:
         return "\nThank you for playing!\n"
 
     def format_board_for_cli(self, board):
+        board_array = board.rows()
         board_string = ""
-        row_size = len(board)
-        flattened_list = [item for sublist in board for item in sublist]
+        row_size = len(board_array)
+        flattened_list = [item for sublist in board_array for item in sublist]
         index_replaced_list = [(idx if val == None else val) for idx, val in enumerate(flattened_list, start=1)]
         result = list(map(lambda x: "| " + str(x) + " ", index_replaced_list))
         for idx, val in enumerate(result, start=1):
@@ -75,4 +79,5 @@ class CliMessages:
                 board_string += val + "|\n-------------\n" 
             else:
                 board_string += val
-        return board_string + "|\n"
+        return "\n" + board_string + "|\n"
+

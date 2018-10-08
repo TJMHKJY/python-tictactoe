@@ -26,11 +26,27 @@ class Game:
 
     def get_players(self):
         return self.__players
-        
-    #def mark_square(self, row, col):
 
-    #switch_player
+    def set_current_player(self, player):
+        self.__current_player = player
 
-    #valid_move(move)
+    def get_current_player(self):
+        return self.__current_player
 
+    def mark_square(self, square, icon):
+        coordinates = self.get_rules().square_to_rows_and_cols(square, self.get_board().get_row_size())
+        row_coordinate = coordinates[0]
+        column_coordinate = coordinates[1]
+        row_to_update = self.get_board().get_row_at(row_coordinate)
+        row_to_update[column_coordinate] = icon
 
+    def switch_current_player(self):
+        player_1 = self.get_players()[0]
+        player_2 = self.get_players()[1]
+        self.set_current_player(player_2) if self.get_current_player() == player_1 else self.set_current_player(player_1)
+
+    def is_valid_move(self, square):
+        coordinates = self.get_rules().square_to_rows_and_cols(square, self.get_board().get_row_size())
+        row_coordinate = coordinates[0]
+        column_coordinate = coordinates[1]
+        return self.get_board().get_square(row_coordinate, column_coordinate) == None

@@ -1,5 +1,7 @@
+import sys
 import pytest
 from python_tictactoe.ui.cli_messages import CliMessages
+from python_tictactoe.game.board import Board
 
 class TestCliMessages(object):
 
@@ -76,6 +78,10 @@ class TestCliMessages(object):
         message = "Player 1, your turn. Please select a move between 1 - 9:"
         assert test_cli.announce_turn(name) == message
 
+    def test_that_it_can_return_an_invalid_move_message(self, test_cli):
+        message = "That was an invalid move, please try again. Please select a move between 1 - 9:"
+        assert test_cli.invalid_move() == message
+
     def test_that_it_can_confirm_a_move(self, test_cli):
         name = "Player 1"
         move = "7"
@@ -95,10 +101,11 @@ class TestCliMessages(object):
         assert test_cli.game_end() == message
 
     def test_that_given_a_board_array_it_can_print_a_board(self, test_cli):
-        board = [
+        board_array = [
             ["x", None, "o"],
             ["o", None, "x"],
             ["x", "o", None]
         ]
-        formatted_board = "| x | 2 | o |\n-------------\n| o | 5 | x |\n-------------\n| x | o | 9 |\n"
+        board = Board(board_array)
+        formatted_board = "\n| x | 2 | o |\n-------------\n| o | 5 | x |\n-------------\n| x | o | 9 |\n"
         assert test_cli.format_board_for_cli(board) == formatted_board
