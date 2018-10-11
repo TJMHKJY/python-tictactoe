@@ -200,4 +200,4 @@ class TestMinimaxStrategy(object):
         game.add_player(computer_player)
         game.set_current_player(human_player)
 
-        assert test_strategy.evaluate_board(game, depth=0) == -10
+        assert test_strategy.evaluate_board(game, depth=0) == 10
