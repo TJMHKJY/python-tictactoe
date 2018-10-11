@@ -44,11 +44,14 @@ class Board:
         return square
 
     def empty_squares(self):
-        flattened_board = [item for sublist in self.board() for item in sublist]
+        flattened_board = self.flattened_board()
         index_replaced_list = [(idx if val == None else None) for idx, val in enumerate(flattened_board, start=1)]
         return [element for element in index_replaced_list if element != None]
 
     def is_full(self):
-        flattened_board = [item for sublist in self.board() for item in sublist]
+        flattened_board = self.flattened_board()
         list_of_empties = [element for element in flattened_board if element == None]
         return len(list_of_empties) == 0
+
+    def flattened_board(self):
+        return [item for sublist in self.board() for item in sublist]

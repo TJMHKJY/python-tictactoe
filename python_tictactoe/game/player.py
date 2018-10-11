@@ -5,5 +5,5 @@ class Player:
         self.icon = icon
         self.strategy = strategy
 
-    def select_move(self, gamestate):
-        return self.strategy.best_move(gamestate)
+    def select_move(self, game, game_params):
+        return self.strategy.best_move(game, game_params)

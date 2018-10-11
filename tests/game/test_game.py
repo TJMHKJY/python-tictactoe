@@ -84,6 +84,28 @@ class TestGame(object):
 
         assert test_game_2.get_board().board() == expected_board
 
+    def test_that_it_can_unmark_a_square(self, test_game_2):
+        board = [
+            [None, None, None],
+            ["x", "o", "x"],
+            ["o", "x", "x"]
+        ]
+        test_board = Board(board)
+        test_rules = Rules(test_board)
+        test_game = Game(test_board, test_rules)
+        
+        square = 9
+
+        test_game.unmark_square(square)
+
+        expected_board = [
+            [None, None, None],
+            ["x", "o", "x"],
+            ["o", "x", None],
+        ]
+
+        assert test_game.get_board().board() == expected_board
+
     def test_that_it_can_switch_the_current_player(self, test_game_2):
         test_game_2.add_player("foo")
         test_game_2.add_player("bar")

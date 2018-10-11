@@ -10,7 +10,7 @@ class Game:
         return self.get_rules().has_winning_row() or self.get_rules().has_winning_column() or self.get_rules().has_winning_diagonal()
 
     def is_over(self):
-        return self.is_won or self.get_board().is_full()
+        return self.is_won() or self.get_board().is_full()
 
     def is_tied(self):
         return self.get_board().is_full() and not self.is_won
@@ -37,8 +37,24 @@ class Game:
         coordinates = self.get_rules().square_to_rows_and_cols(square, self.get_board().get_row_size())
         row_coordinate = coordinates[0]
         column_coordinate = coordinates[1]
-        row_to_update = self.get_board().get_row_at(row_coordinate)
+        # print("row: " + str(row_coordinate))
+        # print("col: " + str(column_coordinate))
+        row_to_update = self.get_board().get_row_at(int(row_coordinate))
+        # col = self.get_board().columns()[1]
+        # col[0] = icon
+        #print("rowtoupdate: " + str(row_to_update))
         row_to_update[column_coordinate] = icon
+        #print("square: " + row_to_update[column_coordinate])
+        #return self
+
+    def unmark_square(self, square):
+        coordinates = self.get_rules().square_to_rows_and_cols(square, self.get_board().get_row_size())
+        row_coordinate = coordinates[0]
+        column_coordinate = coordinates[1]
+        row_to_update = self.get_board().get_row_at(row_coordinate)
+        row_to_update[column_coordinate] = None
+        self.get_board().rows()[row_coordinate][column_coordinate] = None
+        #return self
 
     def switch_current_player(self):
         player_1 = self.get_players()[0]

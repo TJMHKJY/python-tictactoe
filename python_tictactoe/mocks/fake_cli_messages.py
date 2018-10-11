@@ -9,6 +9,9 @@ class FakeCliMessages:
     def invalid_user_name(self):
         ""
 
+    def invalid_user_icon(self):
+        ""
+
     def confirm_name(self, name):
         ""
 
@@ -41,3 +44,15 @@ class FakeCliMessages:
 
     def turn_order(self):
         ""
+
+    def format_board_for_cli(self, board):
+        ""
+
+    def game_won(self, name):
+        ""
+    
+    def game_tied(self):
+        ""
+
+    def game_end(self):
+        return "game has ended"

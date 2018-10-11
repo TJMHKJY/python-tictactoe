@@ -75,7 +75,7 @@ class TestCliMessages(object):
 
     def test_that_it_can_announce_a_turn(self, test_cli):
         name = "Player 1"
-        message = "Player 1, your turn. Please select a move between 1 - 9:"
+        message = "Player 1, your turn. Please select a move between 1 - 9:\n"
         assert test_cli.announce_turn(name) == message
 
     def test_that_it_can_return_an_invalid_move_message(self, test_cli):
@@ -87,6 +87,11 @@ class TestCliMessages(object):
         move = "7"
         message = "Player 1 selects square 7. Placing Player 1's move."
         assert test_cli.confirm_move(name, move) == message  
+
+    def test_that_it_can_confirm_the_computers_move(self, test_cli):
+        name = "Computer"
+        message = "\nComputer's move. Computer is generating a move.\n"
+        assert test_cli.computer_move(name) == message
 
     def test_that_it_can_announce_if_a_game_is_won(self, test_cli):
         message = "\nPlayer 1 wins!"

@@ -75,3 +75,15 @@ class TestBoard(object):
         test_board = Board(board)
         
         assert test_board.is_full()
+
+    def test_that_board_is_not_full(self):
+        board = [["o", None, "o"], ["x", "x", "o"], ["o", "o", "x"]]
+        test_board = Board(board)
+        
+        assert test_board.is_full() == False
+
+    def test_that_it_can_return_a_flattened_board(self):
+        board = [["o", "x", "o"], ["x", "x", "o"], ["o", "o", "x"]]
+        test_board = Board(board)
+
+        assert test_board.flattened_board() == ["o", "x", "o", "x", "x", "o", "o", "o", "x"]

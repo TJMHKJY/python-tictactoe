@@ -50,13 +50,16 @@ class CliMessages:
         return "Computer will go " + turn_order_text
 
     def announce_turn(self, name):
-        return name + ", your turn. Please select a move between 1 - 9:"
+        return name + ", your turn. Please select a move between 1 - 9:\n"
 
     def invalid_move(self):
         return "That was an invalid move, please try again. Please select a move between 1 - 9:"
     
     def confirm_move(self, name, move):
-        return name + " selects square " + move + ". Placing " + name + "'s move."
+        return name + " selects square " + str(move) + ". Placing " + name + "'s move."
+
+    def computer_move(self, name):
+        return "\n"+ name + "'s move. " + name + " is generating a move.\n"
 
     def game_won(self, name):
         return "\n" + name + " wins!"
