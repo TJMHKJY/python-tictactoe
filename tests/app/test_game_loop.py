@@ -97,8 +97,8 @@ class TestGameLoop(object):
         test_game_loop = GameLoop()
         test_game_loop.place_move(game, test_game_params)
         captured = capsys.readouterr()
-        expected_output = "Player 1 selects square 7. Placing Player 1's move.\nThat was an invalid move, please try again. Please select a move between 1 - 9:\nPlayer 1 selects square 5. Placing Player 1's move.\n"
-        assert captured.out == expected_output
+        expected_output = "Player 1 selects square 7. Placing Player 1's move.\nThat was an invalid move, please try again. Please select a move between 1 - 9:\nPlayer 1 selects square 5. Placing Player 1's move."
+        assert captured.out.split("\n\n")[0] == expected_output
 
     def test_that_game_loop_can_mark_the_board(self, test_game_params):
         board_array = [

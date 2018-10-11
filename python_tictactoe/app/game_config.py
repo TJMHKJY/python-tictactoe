@@ -6,16 +6,20 @@ from python_tictactoe.strategy.minimax_strategy import MinimaxStrategy
 class GameConfig:
 
     def run(self, game, game_params):
-        self.intro(game_params)
+        messages = game_params['messages']
+        output = game_params['cli_output']
+        self.intro(game, game_params)
         player_settings = self.player_config(game_params)
+        output.display(messages.format_board_for_cli(game.get_board()))
         game = self.create_game(game.get_board(), game.get_rules())
         return self.create_players(player_settings, game)
 
     
-    def intro(self, game_params):
+    def intro(self, game, game_params):
         messages = game_params['messages']
         output = game_params['cli_output']
         output.display(messages.welcome_message())
+        output.display(messages.format_board_for_cli(game.get_board()))
 
     
     def player_config(self, game_params):

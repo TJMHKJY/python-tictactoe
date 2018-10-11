@@ -18,6 +18,11 @@ class Rules:
                 return True    
 
     def winning_icon(self, rows):
+        rows = self.board.rows()
+        columns = self.board.columns()
+        diagonals = self.board.diagonals()
+        rows.extend(columns)
+        rows.extend(diagonals)
         for row in rows: 
             if self.is_winning_row(row):
                 return row[0]

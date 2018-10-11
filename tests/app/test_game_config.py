@@ -50,9 +50,12 @@ class TestGameConfig(object):
 
 
     def test_that_intro_prints_a_welcome_message(self, capsys, test_valid_game_config, test_game_config):
-        test_game_config.intro(test_valid_game_config)
+        board = Board()
+        rules = Rules(board)
+        game = Game(board, rules)
+        test_game_config.intro(game, test_valid_game_config)
         captured = capsys.readouterr()
-        assert captured.out == "\nWelcome to Tictactoe, human vs computer version\n\n"
+        assert captured.out.split("\n\n")[0].strip() == "Welcome to Tictactoe, human vs computer version"
 
 
     def test_that_it_can_capture_the_user_name(self, test_game_config, test_valid_game_config, monkeypatch):

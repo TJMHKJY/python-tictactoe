@@ -47,6 +47,28 @@ class TestRules(object):
         rows = test_rules_filled.board.rows()
         assert test_rules_filled.winning_icon(rows) == "x"
 
+    def test_can_return_a_winning_icon_if_column_wins(self, test_rules_filled):
+        board_array = [
+            ["x", "o", "x"],
+            ["o", "o", "x"],
+            ["o", "x", "x"],
+        ]
+        board = Board(board_array)
+        test_rules = Rules(board)
+        rows = test_rules.board.rows()
+        assert test_rules.winning_icon(rows) == "x"
+
+    def test_can_return_a_winning_icon_if_diagonal_wins(self, test_rules_filled):
+        board_array = [
+            ["x", "o", "x"],
+            ["o", "x", "o"],
+            ["o", "o", "x"],
+        ]
+        board = Board(board_array)
+        test_rules = Rules(board)
+        rows = test_rules.board.rows()
+        assert test_rules.winning_icon(rows) == "x"
+
     def test_square_to_rows_and_cols(self, test_rules):
         square = 9
         row_size = 3

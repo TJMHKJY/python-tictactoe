@@ -66,7 +66,7 @@ class TestGameOver(object):
         
         result = test_game_config.create_players(player_settings_dict, test_game)
 
-        assert test_game_over.check_for_win_or_tie(result, test_messages) == "\nComputer wins!"
+        assert test_game_over.check_for_win(result, test_messages) == "\nComputer wins!"
 
     def test_that_it_can_check_for_a_tie(self):
         board = [
@@ -86,7 +86,7 @@ class TestGameOver(object):
             'icon': 'x',
             'turn_order': '1',
             'computer_name': 'Computer',
-            'computer_icon': '@'
+            'computer_icon': 'o'
         }
         game_config = game_config.create_players(player_settings_dict, test_game)
-        assert test_game_over.check_for_win_or_tie(test_game, test_messages) == "\nGame is tied!"
+        assert test_game_over.check_for_win(test_game, test_messages) == "\nGame is tied!"

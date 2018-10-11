@@ -29,6 +29,7 @@ class GameLoop:
         move_int = int(move)
         if game.is_valid_move(move_int):
             game.mark_square(move_int, current_player.icon)
+            output.display(messages.format_board_for_cli(game.get_board()))
         else:
             output.display(messages.invalid_move())
             self.place_move(game, game_params)

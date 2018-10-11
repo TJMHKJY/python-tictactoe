@@ -5,7 +5,7 @@ class Board:
         self.__cells = board_array if board_array is not None else self.create_board(row_size)
 
     def create_board(self, row_size):
-        return [[None] * row_size] * row_size
+        return [[None for _ in range(row_size)] for _ in range(row_size)]
 
     def board(self):
         return self.__cells

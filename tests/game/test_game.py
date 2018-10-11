@@ -84,6 +84,23 @@ class TestGame(object):
 
         assert test_game_2.get_board().board() == expected_board
 
+    def test_that_it_can_mark_a_square_on_an_empty_board_correctly(self, test_game_2):
+        board = Board()
+        rules = Rules(board)
+        game = Game(board, rules)
+        square = 9
+        icon = "x"
+
+        game.mark_square(square, icon)
+
+        expected_board = [
+            [None, None, None],
+            [None, None, None],
+            [None, None, "x"],
+        ]
+
+        assert game.get_board().board() == expected_board
+
     def test_that_it_can_unmark_a_square(self, test_game_2):
         board = [
             [None, None, None],

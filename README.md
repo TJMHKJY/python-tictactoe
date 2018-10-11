@@ -20,15 +20,10 @@ To run the entire suite:
 pytest 
 ```
 
-<!-- **To run an individual test file:**
+**To run an individual test file:**
 ```
-mix test test/ui_modules/cli_messages_test.exs 
+pytest tests/ui/test_cli_messages.py -v
 ```
-
-**To run an individual test:**
-```
-mix test test/ui_modules/cli_messages_test.exs:73 
-```  -->
 ___ 
 
 **To play game in terminal**
@@ -45,7 +40,6 @@ ___
 ```
 python_tictactoe
 -- game/  
--- players/  
 -- strategy/  
 ```
 
