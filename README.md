@@ -2,7 +2,8 @@
 
 **Installation**  
 
-This project requires Python 3.7.0  
+This project requires Python 3.7.0 which can be downloaded by going here:  
+https://www.python.org/downloads/
 
 **Install this project by cloning:**  
 ```
@@ -10,7 +11,13 @@ git clone https://github.com/shibani/python-tictactoe.git
 ```
 ___
 
-**To run tests**
+**To install and run tests**
+
+Install pytest by running 
+
+```
+pip install -U pytest
+```
 
 cd into root of app directory and run in console.
 
@@ -23,6 +30,21 @@ pytest
 **To run an individual test file:**
 ```
 pytest tests/ui/test_cli_messages.py -v
+```
+___ 
+
+**To install run test coverage tools**  
+
+Install pytest-cov by running  
+
+```
+pip install pytest-cov
+```
+
+cd into root of app directory and run in console:  
+
+```
+py.test --cov=python_tictactoe tests/
 ```
 ___ 
 
