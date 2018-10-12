@@ -56,7 +56,7 @@ class TestMinimaxStrategy:
         game.set_current_player(human_player)
         test_strategy = MinimaxStrategy()
 
-        result = test_strategy.minimax_alt(game)
+        result = test_strategy.minimax(game)
         assert result == 5
     
     def test_that_it_picks_a_win(self):
@@ -77,7 +77,7 @@ class TestMinimaxStrategy:
         game.set_current_player(computer_player)
         test_strategy = MinimaxStrategy()
 
-        result = test_strategy.minimax_alt(game) 
+        result = test_strategy.minimax(game) 
         assert result == 8
 
     def test_that_it_blocks_a_win(self):
@@ -99,10 +99,7 @@ class TestMinimaxStrategy:
         game.set_current_player(computer_player)
         test_strategy = MinimaxStrategy()
 
-        result = test_strategy.minimax_alt(game)
-        #result = test_strategy.minimax_ruby(game)
-        #result = test_strategy.minimax_geeks(game, game.get_current_player(), 0) 
-        #result = test_strategy.minimax_geeks_2(game, 0, False)
+        result = test_strategy.minimax(game)
         assert result == 9
 
     def test_that_it_picks_a_win_when_there_are_more_empty_spaces(self):
@@ -124,7 +121,7 @@ class TestMinimaxStrategy:
         game.set_current_player(computer_player)
         test_strategy = MinimaxStrategy()
 
-        result = test_strategy.minimax_alt(game)
+        result = test_strategy.minimax(game)
         assert result == 4
 
 
