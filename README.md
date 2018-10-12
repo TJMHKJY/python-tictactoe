@@ -35,17 +35,13 @@ ___
 
 **To install run test coverage tools**  
 
-Install pytest-cov by running  
+cd into root of app directory and run in console: 
 
 ```
-pip install pytest-cov
+pip install pytest-cov  
+py.test --cov=python_tictactoe tests/  
 ```
 
-cd into root of app directory and run in console:  
-
-```
-py.test --cov=python_tictactoe tests/
-```
 ___ 
 
 **To play game in terminal**
