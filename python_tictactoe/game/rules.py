@@ -4,7 +4,8 @@ class Rules:
         self.board = board
 
     def all_elements_are_the_same(self, row):
-        return all(element == row[0] for element in row)
+        #return all(element == row[0] for element in row)
+        return len(set(row)) == 1
 
     def no_elements_are_empty(self, row):
         return all(element != None for element in row)
