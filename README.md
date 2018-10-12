@@ -33,7 +33,7 @@ pytest tests/ui/test_cli_messages.py -v
 ```
 ___ 
 
-**To install run test coverage tools**  
+**To install and run test coverage tools**  
 
 cd into root of app directory and run in console: 
 
