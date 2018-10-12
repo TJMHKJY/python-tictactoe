@@ -58,22 +58,22 @@ class MinimaxStrategy:
         index_replaced_list = [(idx if val == None else None) for idx, val in enumerate(flattened_board, start=1)]
         return [element for element in index_replaced_list if element != None]
 
-    def evaluate_board(self, game, depth):
-        if game.is_won():
-            if(game.get_rules().winning_icon(game.get_board().rows()) == game.get_current_player().icon):
-                return 10 - depth
-            else: 
-                return -10 + depth 
-        else:
-            return 0
+    # def evaluate_board(self, game, depth):
+    #     if game.is_won():
+    #         if(game.get_rules().winning_icon(game.get_board().rows()) == game.get_current_player().icon):
+    #             return 10 - depth
+    #         else: 
+    #             return -10 + depth 
+    #     else:
+    #         return 0
 
-    def get_score(self, game):
-        player_icon = game.get_current_player().icon
-        opponent_icon = game.get_players[0].icon if player_icon == game.get_players[0].icon else game.get_players[1].icon
+    # def get_score(self, game):
+    #     player_icon = game.get_current_player().icon
+    #     opponent_icon = game.get_players[0].icon if player_icon == game.get_players[0].icon else game.get_players[1].icon
 
-        if game.is_over():
-            if game.winning_icon  == player_icon:
-                return 1
-            elif game.winning_icon == opponent_icon:
-                return -1
-        return 0
+    #     if game.is_over():
+    #         if game.winning_icon  == player_icon:
+    #             return 1
+    #         elif game.winning_icon == opponent_icon:
+    #             return -1
+    #     return 0

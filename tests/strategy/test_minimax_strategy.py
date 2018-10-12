@@ -124,7 +124,6 @@ class TestMinimaxStrategy:
         result = test_strategy.minimax(game)
         assert result == 4
 
-
     def test_that_it_can_place_a_move(self):
         board_array = [
             ["x", "x", "o"],
@@ -190,23 +189,3 @@ class TestMinimaxStrategy:
         test_strategy = MinimaxStrategy()
 
         assert test_strategy.available_squares(flattened_board) == [2,4,9]
-
-    def test_that_it_can_evaluate_a_board_and_return_a_square(self):   
-        board_array = [
-            ["x", None, "o"],
-            ["x", "o", "o"],
-            ["x", "o", None]
-        ]
-
-        board = Board(board_array)
-        rules = Rules(board)
-        game = Game(board, rules)
-
-        human_player = Player("Player 1", "x", "foo")
-        computer_player = Player("Computer", "o", "foo")
-        game.add_player(human_player)
-        game.add_player(computer_player)
-        game.set_current_player(human_player)
-        test_strategy = MinimaxStrategy()
-
-        assert test_strategy.evaluate_board(game, depth=0) == 10
